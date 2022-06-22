@@ -1,3 +1,7 @@
+#navBarIcon{
+    filter: invert(1);
+}
+
 body{
     color: white;
     background-color: #121212;
@@ -34,6 +38,19 @@ body{
     opacity: 1;
     color: white;
     background-color: #BB86FC;
+}
+
+#encrypt-submit, #decrypt-submit{
+    background-color: #444444;
+    color: white;
+    transition-duration: 0.4s;
+
+}
+
+#encrypto-submit:hover {
+    background-color: #BB86FC;
+    color: white;
+    border-color: black;
 }
 
 .footer{

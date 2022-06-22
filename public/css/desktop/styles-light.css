@@ -14,3 +14,8 @@ body{
     background-color: #FFB562;
 }
 
+#encrypt-submit, #decrypt-submit{
+    background-color: #FFB562;
+    color: white;
+}
+

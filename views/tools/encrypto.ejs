@@ -6,10 +6,57 @@
 
 <div class="container container-fluid content">
     <h2><strong>Instructions</strong></h2>
+    <div class="content-instructions">
+        <ul>
+            <li><p>Select operation to perform <strong>Encrypt</strong> or <strong>Decrypt</strong>.</p></li>
+            <li><p>Enter the message you want to encrypt.</p></li>
+            <li><p>Set a password to decrypt the message or leave it empty. <strong>Remember! the data cannot be retrieved without correct password</strong>.</p></li>
+            <li><p>Upload your image file in the one of the formats <strong>[png, jpeg, jpg]</strong>.</p></li>
+        </ul>
 
-    <div class="form-group">
-        <input class="form-control" type="file" id="formFile">
-    </div>
+        <!-- Main Menu  -->
+        <div class="encrypto-main">
+            <button type="button" class="btn btn-success btn-lg form-contents encrypto-encrypt-btn">Encrypt</button>
+            <br>
+            <button type="button" class="btn btn-outline-danger btn-lg form-contents encrypto-decrypt-btn">Decrypt</button>
+        </div>
+
+        <!-- Encrypt Menu  -->
+        <form action="/tools/encrypto/encrypt" method="POST" id="encrypto-encrypt-form" class="hidden">
+            <div class="form-group form-contents">
+                <label for="exampleTextarea" class="form-label mt-4">Enter <strong>data</strong> or <strong>message</strong> to be hidden</label>
+                <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+            </div>
+            <div class="form-floating form-contents">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-group form-contents">
+                <input class="form-control encrypto-file-encrypt" type="file" id="formFile">
+            </div>
+            <button class="btn" type="button" id="encrypt-submit">Submit</button>
+            <div class="alert alert-dismissible alert-danger form-contents hidden" id="encrypto-alert">
+                Oh snap! <strong>Invalid file type</strong> please select the mentioned file types only.
+            </div>
+        </form>
+
+        <!-- Decrypt Menu  -->
+        <form action="/tools/encrypto/decrypt" method="POST" id="encrypto-decrypt-form" class="hidden">
+            <div class="form-group form-contents">
+                <input class="form-control encrypto-file-decrypt" type="file" id="formFile">
+            </div>
+            <div class="form-floating form-contents">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button class="btn" type="button" id="decrypt-submit">Submit</button>
+            <div class="alert alert-dismissible alert-danger form-contents hidden" id="encrypto-alert-two">
+                Oh snap! <strong>Invalid file type</strong> please select the mentioned file types only.
+            </div>
+        </form>
+    </div> 
 </div>
 
 <%- include("../partials/footer.ejs") %>
+
+<script src="/javascript/tools.js"></script>

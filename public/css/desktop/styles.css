@@ -1,5 +1,19 @@
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+#navBarIcon{
+    width: 6rem;
+    position: relative;
+    top: 7px;
+}
+
 body{
     text-align: center;
+    transition-duration: 0.4s;
 }
 
 
@@ -51,9 +65,45 @@ body{
     min-height: 550px;
 }
 
-#formFile{
-    width: 50%;
-    margin: 10px auto
+.content-instructions{
+    text-align: left;
+}
+
+#carouselExampleIndicators{
+    width: 711px;
+}
+
+.d-block{
+    height: 400px;
+}
+
+
+.encrypto-main{
+    text-align: center;
+}
+.encrypto-encrypt-btn{
+    margin-top: 70px !important;
+}
+
+#encrypto-encrypt-form{
+    padding: 0 350px;
+}
+#encrypto-decrypt-form{
+    padding: 0 350px;
+}
+
+.form-contents{
+    margin: 15px auto;
+}
+
+.encrypto-file-decrypt{
+    margin-top: 80px;
+}
+
+#encrypt-submit:hover, #decrypt-submit:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
 }
 
 .footer{
@@ -65,5 +115,9 @@ body{
 
 .footer-text{
     margin: 0;
+}
+
+.hidden{
+    display: none;
 }
 

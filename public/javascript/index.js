@@ -5,10 +5,9 @@ const changeMode = document.querySelector("#changeMode");
 
 var pathPrefix;
 
-if(isMobile) pathPrefix = 'mobile';
-else pathPrefix = 'desktop';
-
 document.addEventListener("DOMContentLoaded", () => {
+    if(isMobile) pathPrefix = 'mobile';
+    else pathPrefix = 'desktop';
     var darkMode = localStorage.getItem("darkMode");
     if(darkMode == undefined) darkMode = "false";
     changeMode.checked = (darkMode == "true");

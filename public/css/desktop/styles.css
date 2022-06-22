@@ -51,6 +51,11 @@ body{
     min-height: 550px;
 }
 
+#formFile{
+    width: 50%;
+    margin: 10px auto
+}
+
 .footer{
     height: 150px;
     display: flex;

@@ -6,7 +6,9 @@ app.use(useragent.express());
 app.use(express.static('public'))
 
 const mainRouter = require('./routes/index.js');
+const toolsRouter = require('./routes/tools.js');
 app.use(mainRouter);
+app.use(toolsRouter);
 
 
 app.set("view engine", "ejs");

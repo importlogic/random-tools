@@ -1,7 +1,41 @@
 body{
     color: white;
+    background-color: #121212;
 }
 
 .navbar-brand, .nav-link{
     color: white!important;
+}
+
+.nav-link.active{
+    opacity: 1;
+}
+
+.nav-link{
+    opacity: .55;
+}
+
+.nav-link:hover{
+    opacity: .7;
+}
+
+.navbar-toggler{
+    border-color: white!important;
+}
+
+.navbar-toggler-icon{
+    filter: invert(1);
+}
+
+.dropdown-item{
+    opacity: .55;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    opacity: 1;
+    color: white;
+    background-color: #BB86FC;
+}
+
+.footer{
+    background-color: #222222;
 }

@@ -1,0 +1,16 @@
+/* Palette : https://colorhunt.co/palette/f9f2ed3ab0ffffb562f87474 */
+
+body{
+    background-color: #F9F2ED;
+}
+
+.footer{
+    background-color: #FFB562;
+    color: white;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: white;
+    background-color: #FFB562;
+}
+

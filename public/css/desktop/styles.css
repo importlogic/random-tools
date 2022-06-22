@@ -1,9 +1,15 @@
+body{
+    text-align: center;
+}
+
+
 .container{
     padding: 10px 30px;
 }
 
 .nav-item{
-    margin: 0 20px 0 0;
+    margin: 5px 20px 5px 0;
+    text-align: left;
 }
 
 #changeMode{
@@ -16,6 +22,8 @@
     outline: none;
     background-image: url("../../images/day.png");
     background-size: cover;
+    transition: translate 500ms ease-in-out 25ms;
+    cursor: pointer;
 }
 
 #changeMode::before{
@@ -36,3 +44,19 @@
 #changeMode:checked{
     background-image: url("../../images/night.png");
 }
+
+.content{
+    min-height: 550px;
+}
+
+.footer{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text{
+    margin: 0;
+}
+

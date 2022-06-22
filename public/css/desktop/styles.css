@@ -1,0 +1,38 @@
+.container{
+    padding: 10px 30px;
+}
+
+.nav-item{
+    margin: 0 20px 0 0;
+}
+
+#changeMode{
+    -webkit-appearance: none;
+    position: relative;
+    top: 4px;
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    outline: none;
+    background-image: url("../../images/day.png");
+    background-size: cover;
+}
+
+#changeMode::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #374151;
+    border-radius: 50px;
+}
+
+#changeMode:checked::before{
+    transform: translate(100%);
+}
+
+#changeMode:checked{
+    background-image: url("../../images/night.png");
+}

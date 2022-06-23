@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     changeMode.checked = (darkMode == "true");
     setDisplay();
     stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
-    setTimeout( () => {
-        document.querySelector("html").classList.remove("preload");
-    }, 1500);
 });
 
 function setDisplay(){

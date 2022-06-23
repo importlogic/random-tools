@@ -11,7 +11,7 @@
             <li><p>Select operation to perform <strong>Encrypt</strong> or <strong>Decrypt</strong>.</p></li>
             <li><p>Enter the message you want to encrypt.</p></li>
             <li><p>Set a password to decrypt the message or leave it empty. <strong>Remember! the data cannot be retrieved without correct password</strong>.</p></li>
-            <li><p>Upload your image file in the one of the formats <strong>[png, jpeg, jpg]</strong>.</p></li>
+            <li><p>Upload your image file in <strong>[PNG]</strong> format only.</p></li>
         </ul>
 
         <!-- Main Menu  -->
@@ -22,17 +22,17 @@
         </div>
 
         <!-- Encrypt Menu  -->
-        <form action="/tools/encrypto/encrypt" method="POST" id="encrypto-encrypt-form" class="hidden">
+        <form action="/tools/encrypto/encrypt" method="POST" id="encrypto-encrypt-form" class="hidden" enctype="multipart/form-data">
             <div class="form-group form-contents">
                 <label for="exampleTextarea" class="form-label mt-4">Enter <strong>data</strong> or <strong>message</strong> to be hidden</label>
-                <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                <textarea class="form-control" id="exampleTextarea" rows="5" name="data"></textarea>
             </div>
             <div class="form-floating form-contents">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                 <label for="floatingPassword">Password</label>
             </div>
             <div class="form-group form-contents">
-                <input class="form-control encrypto-file-encrypt" type="file" id="formFile">
+                <input class="form-control encrypto-file-encrypt" type="file" id="formFile" name="file">
             </div>
             <button class="btn" type="button" id="encrypt-submit">Submit</button>
             <div class="alert alert-dismissible alert-danger form-contents hidden" id="encrypto-alert">
@@ -41,12 +41,12 @@
         </form>
 
         <!-- Decrypt Menu  -->
-        <form action="/tools/encrypto/decrypt" method="POST" id="encrypto-decrypt-form" class="hidden">
+        <form action="/tools/encrypto/decrypt" method="POST" id="encrypto-decrypt-form" class="hidden" enctype="multipart/form-data">
             <div class="form-group form-contents">
-                <input class="form-control encrypto-file-decrypt" type="file" id="formFile">
+                <input class="form-control encrypto-file-decrypt" type="file" id="formFile" name="file">
             </div>
             <div class="form-floating form-contents">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                 <label for="floatingPassword">Password</label>
             </div>
             <button class="btn" type="button" id="decrypt-submit">Submit</button>

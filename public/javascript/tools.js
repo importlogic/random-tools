@@ -11,8 +11,6 @@ function validateFileTypeEncrypt(){
   }
   else ext = ext[1];
   switch (ext) {
-    case 'jpg':
-    case 'jpeg':
     case 'png':
       document.querySelector("#encrypt-submit").classList.remove("disabled");
       document.querySelector("#encrypto-alert").classList.add("hidden");
@@ -36,8 +34,6 @@ function validateFileTypeDecrypt(){
   else ext = ext[1];
   console.log(ext);
   switch (ext) {
-    case 'jpg':
-    case 'jpeg':
     case 'png':
       document.querySelector("#decrypt-submit").classList.remove("disabled");
       document.querySelector("#encrypto-alert-two").classList.add("hidden");
@@ -64,12 +60,18 @@ document.querySelector(".encrypto-decrypt-btn").addEventListener("click", () => 
 });
 
 document.querySelector("#encrypt-submit").addEventListener("click", () => {
-  if(validateFileTypeEncrypt()) document.querySelector("#encrypto-encrypt-form").submit();
+  if(validateFileTypeEncrypt()) {
+    document.querySelector("#encrypto-encrypt-form").submit();
+    document.querySelector("#encrypto-encrypt-form").reset();
+  }
 });
 
 document.querySelector("#decrypt-submit").addEventListener("click", () => {
   if(validateFileTypeDecrypt()) document.querySelector("#encrypto-decrypt-form").submit();
+  if(validateFileTypeDecrypt()) document.querySelector("#encrypto-decrypt-form").reset();
 });
+
+
 
 
 

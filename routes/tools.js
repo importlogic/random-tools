@@ -1,4 +1,18 @@
 const router = require('express').Router();
+const path = require("path"); 
+const fs = require("fs");
+const multer  = require('multer')
+const upload = multer({ dest: './public/data/uploads' });
+const encrypto = require("../modules/encrypto.js");
+
+
+router.get('/tools', (req, res) => {
+    var isMobile = req.useragent.isMobile;
+    res.render('tools/tools.ejs', {
+        isMobile,
+        title: "Tools"
+    })
+})
 
 router.get("/tools/:toolName", (req, res) => {
     var isMobile = req.useragent.isMobile;
@@ -8,5 +22,40 @@ router.get("/tools/:toolName", (req, res) => {
         title: "Encrypto"
     })
 });
+
+router.post("/tools/encrypto/:action", upload.single('file'), (req, res) => {
+    var action = req.params.action;
+    var ext = path.extname(req.file.originalname);
+
+    var fileName = req.file.filename;
+    var data = req.body.data;
+    var password = req.body.password;
+
+    if(action == 'encrypt'){
+        encrypto.encrypt(data, password, fileName, ext);
+        res.redirect(`/tools/encrypto/download/${fileName}?ext=${ext}`);
+    }
+    else{
+        encrypto.decrypt(password, fileName, ext);
+        res.redirect(`/tools/encrypto/download/${fileName}?ext=.txt`);
+    }
+});
+
+router.get("/tools/encrypto/download/:fileName", (req, res) => {
+    var fileName = req.params.fileName;
+    var ext = req.query.ext;
+    var isMobile = req.useragent.isMobile;
+    res.render("download.ejs", {
+        isMobile,
+        title: "Download",
+        fileName,
+        ext
+    })
+})
+
+router.get("/tools/encrypto/download/result/:fileName", (req, res) => {
+    var fileName = req.params.fileName;
+    res.download(`./public/data/downloads/${fileName}`);
+})
 
 module.exports = router;

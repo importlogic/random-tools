@@ -16,6 +16,10 @@ body{
     transition-duration: 0.4s;
 }
 
+.download-heading{
+    margin-top: 150px;
+}
+
 
 .container{
     padding: 10px 30px;
@@ -112,6 +116,14 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.progress-bar-download-page{
+    animation: loading-animation 10s;
+}
+@keyframes loading-animation {
+    from {width: 0%;}
+    to {width: 100%;}
+  }
 
 .footer-text{
     margin: 0;

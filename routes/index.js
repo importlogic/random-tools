@@ -9,5 +9,21 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/about', (req, res) => {
+    var isMobile = req.useragent.isMobile;
+    res.render('about.ejs', {
+        isMobile,
+        title: "About"
+    })
+})
+
+router.get('/contact', (req, res) => {
+    var isMobile = req.useragent.isMobile;
+    res.render('contact.ejs', {
+        isMobile,
+        title: "Contact"
+    })
+})
+
 
 module.exports = router;

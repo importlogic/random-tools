@@ -6,6 +6,11 @@ const changeMode = document.querySelector("#changeMode");
 var pathPrefix;
 
 document.addEventListener("DOMContentLoaded", () => {
+    setTimeout( () => {
+        document.querySelector(".loading-screen").classList.add("hidden");
+        document.querySelector(".footer").classList.remove("hidden");
+    }, 2000);
+
     if(isMobile) pathPrefix = 'mobile';
     else pathPrefix = 'desktop';
     var darkMode = localStorage.getItem("darkMode");

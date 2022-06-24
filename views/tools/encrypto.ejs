@@ -11,7 +11,7 @@
             <li><p>Select operation to perform <strong>Encrypt</strong> or <strong>Decrypt</strong>.</p></li>
             <li><p>Enter the message you want to encrypt.</p></li>
             <li><p>Set a password to decrypt the message or leave it empty. <strong>Remember! the data cannot be retrieved without correct password</strong>.</p></li>
-            <li><p>Upload your image file in <strong>[PNG]</strong> format only.</p></li>
+            <li><p>For Encryption <strong>[PNG, JPEG, JPG]</strong> is supported, for Decryption only <strong>[PNG]</strong> is supported.</p></li>
         </ul>
 
         <!-- Main Menu  -->
@@ -24,8 +24,7 @@
         <!-- Encrypt Menu  -->
         <form action="/tools/encrypto/encrypt" method="POST" id="encrypto-encrypt-form" class="hidden" enctype="multipart/form-data">
             <div class="form-group form-contents">
-                <label for="exampleTextarea" class="form-label mt-4">Enter <strong>data</strong> or <strong>message</strong> to be hidden</label>
-                <textarea class="form-control" id="exampleTextarea" rows="5" name="data"></textarea>
+                <textarea class="form-control" id="exampleTextarea" rows="5" name="data">Enter data or message to be hidden here.</textarea>
             </div>
             <div class="form-floating form-contents">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">

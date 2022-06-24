@@ -11,6 +11,8 @@ function validateFileTypeEncrypt(){
   }
   else ext = ext[1];
   switch (ext) {
+    case 'jpeg':
+    case 'jpg':
     case 'png':
       document.querySelector("#encrypt-submit").classList.remove("disabled");
       document.querySelector("#encrypto-alert").classList.add("hidden");

@@ -23,7 +23,7 @@ router.get("/tools/:toolName", (req, res) => {
     })
 });
 
-router.post("/tools/encrypto/:action", upload.single('file'), (req, res) => {
+router.post("/tools/encrypto/:action", upload.single('file'), async (req, res) => {
     var action = req.params.action;
     var ext = path.extname(req.file.originalname);
 
@@ -33,11 +33,16 @@ router.post("/tools/encrypto/:action", upload.single('file'), (req, res) => {
 
     if(action == 'encrypt'){
         encrypto.encrypt(data, password, fileName, ext);
-        res.redirect(`/tools/encrypto/download/${fileName}?ext=${ext}`);
+        res.redirect(`/tools/encrypto/download/${fileName}?ext=.png`);
     }
     else{
-        encrypto.decrypt(password, fileName, ext);
-        res.redirect(`/tools/encrypto/download/${fileName}?ext=.txt`);
+        var ok = await encrypto.decrypt(password, fileName, ext);
+        if(ok){
+            res.redirect(`/tools/encrypto/download/${fileName}?ext=.txt`);
+        }
+        else{
+            res.status(500).render("broken.ejs");
+        }
     }
 });
 

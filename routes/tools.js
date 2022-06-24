@@ -2,7 +2,7 @@ const router = require('express').Router();
 const path = require("path"); 
 const fs = require("fs");
 const multer  = require('multer')
-const upload = multer({ dest: './public/data/uploads' });
+const upload = multer({ dest: './tmp/uploads' });
 const encrypto = require("../modules/encrypto.js");
 
 
@@ -55,7 +55,7 @@ router.get("/tools/encrypto/download/:fileName", (req, res) => {
 
 router.get("/tools/encrypto/download/result/:fileName", (req, res) => {
     var fileName = req.params.fileName;
-    res.download(`./public/data/downloads/${fileName}`);
+    res.download(`./tmp/downloads/${fileName}`);
 })
 
 module.exports = router;

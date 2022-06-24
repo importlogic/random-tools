@@ -1,7 +1,7 @@
 const getPixels = require("get-pixels");
 const savePixels = require("save-pixels");
 const fs = require("fs");
-const dir = "public/data/";
+const dir = "./tmp/";
 const crypto = require("crypto");
 const iv = process.env.IV;
 
@@ -66,7 +66,7 @@ const encrypt = async (message, password, fileName, ext) => {
         setTimeout(() => {
             fs.unlink(`${dir}downloads/${fileName}-converted${ext}`, (e) => {} );
             fs.unlink(path, (e) => {} );
-        }, 5 * 60 * 100);
+        }, 5 * 60 * 1000);
     });
 } 
 
@@ -114,7 +114,7 @@ const decrypt = async (password, fileName, ext) => {
         setTimeout(() => {
             fs.unlink(`${dir}downloads/${fileName}-converted.txt`, (e) => {} );
             fs.unlink(path, (e) => {} );
-        }, 5 * 60 * 100);
+        }, 5 * 60 * 1000);
     });
 }
 

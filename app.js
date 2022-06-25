@@ -22,10 +22,14 @@ app.listen(PORT, () => {
 });
 
 app.use((req, res, next) => {
-    res.status(404).render("notFound.ejs")
+    res.status(404).render("broken.ejs", {
+        code: "404"
+    })
 })
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
-    res.status(500).render("broken.ejs")
+    res.status(500).render("broken.ejs", {
+        code: "500"
+    })
 })

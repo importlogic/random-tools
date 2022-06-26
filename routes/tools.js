@@ -3,14 +3,18 @@ const path = require("path");
 const fs = require("fs");
 const multer  = require('multer')
 const upload = multer({ dest: './tmp/uploads' });
+
+// Local Modules 
 const encrypto = require("../modules/encrypto.js");
+const toolsList = require('../modules/tools-data.js');
 
 
 router.get('/tools', (req, res) => {
     var isMobile = req.useragent.isMobile;
     res.render('tools/tools.ejs', {
         isMobile,
-        title: "Tools"
+        title: "Tools",
+        toolsList
     })
 })
 
@@ -19,7 +23,8 @@ router.get("/tools/:toolName", (req, res) => {
     var toolName = req.params.toolName;
     res.render(`./tools/${toolName}.ejs`, {
         isMobile,
-        title: "Encrypto"
+        title: "Encrypto",
+        toolsList
     })
 });
 
@@ -53,6 +58,7 @@ router.get("/tools/encrypto/download/:fileName", (req, res) => {
     res.render("download.ejs", {
         isMobile,
         title: "Download",
+        toolsList,
         fileName,
         ext
     })

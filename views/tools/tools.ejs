@@ -7,22 +7,27 @@
 <div class="container container-fluid content">
     <h2><strong>Tools</strong></h2>
     <div class="tools-list">
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Data Hider
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                <div class="accordion-body">
-                  This tool helps you to hide your data or text in plain sight using <strong>Steganography</strong>. Just submit an image and your secret data along with a password of you choice. Password can also be left empty. After submitting it you will get the encrypted image which looks like the original one to human eyes. Now head over to the decrypt section and submit your image along with the password and you will be able to download a txt file along with the decrypted message in it.
-                  <br><br>
-                  <a href="/tools/encrypto" target="_blank">Visit Now</a>
+      <% for(var i = 0; i < toolsList.length; i++) { %>
+          <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <% var id = 'a' %>
+                  <% id += i %>
+                  <% idd = '#' + id %>
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%= idd %> aria-expanded="false" aria-controls=<%= id %>>
+                    <%= toolsList[i].name %>
+                  </button>
+                </h2>
+                <div id=<%= id %> class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                  <div class="accordion-body">
+                    <%= toolsList[i].longDescription %>
+                    <br><br>
+                    <a href=<%= toolsList[i].link %> target="_blank">Visit Now</a>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
+          </div>
+        <% } %>
     </div>
 </div>
 

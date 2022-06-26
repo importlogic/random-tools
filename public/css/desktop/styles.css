@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -11,9 +19,39 @@
     top: 7px;
 }
 
-body{
+.homepage-heading{
+    text-align: left;
+    position: relative;
+    left: -10px;
+    font-weight: 600;
+    min-height: 250px;
+    margin-top: 40px;
+}
+
+.homepage-cta{
+    margin-left: 0;
+    cursor: pointer;
+    position: relative;
+    left: -10px;
+    margin-top: 20px;
+}
+
+#list {
+    overflow: hidden;
+    height: 500px;
+    text-align: left;
+}
+
+.card-header{
     text-align: center;
-    transition-duration: 0.4s;
+}
+
+.card-body{
+    height: 140px;
+}
+
+.item:last-child {
+    margin-bottom: 0px;
 }
 
 .download-heading{
@@ -73,16 +111,13 @@ body{
     text-align: left;
 }
 
-#carouselExampleIndicators{
-    width: 711px;
-}
-
 .d-block{
     height: 400px;
 }
 
 .tools-list{
     padding: 30px 200px 0;
+    margin-bottom: 30px;
 }
 
 .accordion-body{
@@ -112,7 +147,7 @@ body{
     margin-top: 80px;
 }
 
-#encrypt-submit:hover, #decrypt-submit:hover {
+#encrypt-submit:hover, #decrypt-submit:hover , .homepage-cta:hover{
     background-color: white;
     color: black;
     border-color: black;

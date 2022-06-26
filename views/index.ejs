@@ -5,7 +5,34 @@
 <body>
 
 <div class="container container-fluid content">
-    <img src="/images/under-construction.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 homepage-heading">
+                <h1 class="homepage-heading homepage-heading-text" ></h1>
+                <a href="/tools" target="_blank" class="btn btn-lg homepage-cta">Find Tools</a>
+            </div>
+            <div class="col-12 col-md-4">
+                <div id="list">
+                    <% for(var i = 0; i < toolsList.length; i++) { %>
+                    <span>
+                        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+                        <div class="card-header"><%= toolsList[i].name %></div>
+                        <div class="card-body">
+                          <p class="card-text"><%= toolsList[i].shortDescription %></p>
+                        </div>
+                      </div>
+                    </span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%- include("partials/footer.ejs") %>
+
+<!-- jquery  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- JS  -->
+<script src="/javascript/homepage.js"></script>

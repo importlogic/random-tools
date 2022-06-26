@@ -1,21 +1,22 @@
-/* Palette : https://colorhunt.co/palette/f9f2ed3ab0ffffb562f87474 */
+/* https://colorhunt.co/palette/e8f9fd79dae80aa1dd2155cd */
 
 body{
-    background-color: #F9F2ED;
+    /* background-color: #F9F2ED; */
+    background-color: #E8F9FD;
 }
 
 .footer{
-    background-color: #FFB562;
+    background-color: #2155CD;
     color: white;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
     color: white;
-    background-color: #FFB562;
+    background-color: #2155CD;
 }
 
-#encrypt-submit, #decrypt-submit{
-    background-color: #FFB562;
+#encrypt-submit, #decrypt-submit, .homepage-cta{
+    background-color: #0AA1DD;
     color: white;
 }
 

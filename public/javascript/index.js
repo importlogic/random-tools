@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function setDisplay(){
     if(changeMode.checked){
-        stylesBootstrap.setAttribute("href", `/css/${pathPrefix}/bootstrap-dark.min.css`);
+        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/bootstrap-custom@master/flatly/bootstrap-dark.min.css`);
         stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-dark.css`);
     }
     else{
-        stylesBootstrap.setAttribute("href", `/css/${pathPrefix}/bootstrap-light.min.css`);
+        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/bootstrap-custom@master/flatly/bootstrap-light.min.css`);
         stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-light.css`);
     }
     localStorage.setItem("darkMode", changeMode.checked);

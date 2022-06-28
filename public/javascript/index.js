@@ -4,8 +4,19 @@ const stylesCommon = document.querySelector("#stylesCommon");
 const changeMode = document.querySelector("#changeMode");
 
 var pathPrefix;
+if(isMobile) pathPrefix = 'mobile';
+else pathPrefix = 'desktop';
+var darkMode = localStorage.getItem("darkMode");
+if(darkMode == undefined) darkMode = "false";
+changeMode.checked = (darkMode == "true");
 
 document.addEventListener("DOMContentLoaded", () => {
+    setDisplay();
+    stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
+    setTimeout( () => {
+        document.querySelector("html").classList.remove("preload");
+    }, 1500);
+    
     switch(title){
         case "Home":
             document.querySelector(".home-link").classList.add("active");
@@ -20,17 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".tools-link").classList.add("active");
             break;
     }
-
-    if(isMobile) pathPrefix = 'mobile';
-    else pathPrefix = 'desktop';
-    var darkMode = localStorage.getItem("darkMode");
-    if(darkMode == undefined) darkMode = "false";
-    changeMode.checked = (darkMode == "true");
-    setDisplay();
-    stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
-    setTimeout( () => {
-        document.querySelector("html").classList.remove("preload");
-    }, 1500);
 });
 
 function setDisplay(){

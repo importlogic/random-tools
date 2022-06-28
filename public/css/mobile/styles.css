@@ -3,6 +3,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    padding: 0 !important;
     transition-duration: 0.4s;
 }
 
@@ -167,7 +168,7 @@ body{
 }
 
 #dataModal{
-    max-width: 100%;
+    padding: 0 10px !important;
 }
 
 .footer{

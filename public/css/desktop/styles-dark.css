@@ -40,7 +40,7 @@ body{
     background-color: #BB86FC;
 }
 
-#encrypt-submit, #decrypt-submit, .homepage-cta{
+#encrypt-submit, #decrypt-submit, #clipit-submit, .homepage-cta{
     background-color: #444444;
     color: white;
     transition-duration: 0.4s;

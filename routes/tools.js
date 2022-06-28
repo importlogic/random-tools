@@ -6,11 +6,12 @@ const upload = multer({ dest: './tmp/uploads' });
 
 // Local Modules 
 const encrypto = require("../modules/encrypto.js");
+const clipit = require("../modules/clipit.js");
 const toolsList = require('../modules/tools-data.js');
 
 
 router.get('/tools', (req, res) => {
-    var isMobile = req.useragent.isMobile;
+    const isMobile = req.useragent.isMobile;
     res.render('tools/tools.ejs', {
         isMobile,
         title: "Tools",
@@ -18,10 +19,11 @@ router.get('/tools', (req, res) => {
     })
 })
 
-router.get("/tools/:toolName", (req, res) => {
-    var isMobile = req.useragent.isMobile;
-    var toolName = req.params.toolName;
-    res.render(`./tools/${toolName}.ejs`, {
+// encrypto 
+
+router.get("/tools/encrypto", (req, res) => {
+    const isMobile = req.useragent.isMobile;
+    res.render(`./tools/encrypto.ejs`, {
         isMobile,
         title: "Encrypto",
         toolsList
@@ -54,7 +56,7 @@ router.post("/tools/encrypto/:action", upload.single('file'), async (req, res) =
 router.get("/tools/encrypto/download/:fileName", (req, res) => {
     var fileName = req.params.fileName;
     var ext = req.query.ext;
-    var isMobile = req.useragent.isMobile;
+    const isMobile = req.useragent.isMobile;
     res.render("download.ejs", {
         isMobile,
         title: "Download",
@@ -68,5 +70,47 @@ router.get("/tools/encrypto/download/result/:fileName", (req, res) => {
     var fileName = req.params.fileName;
     res.download(`./tmp/downloads/${fileName}`);
 })
+
+
+// clipit 
+
+function clipitHome(req, res){
+    const isMobile = req.useragent.isMobile;
+    res.render(`./tools/clipit.ejs`, {
+        isMobile,
+        title: "Clipit",
+        toolsList,
+        success: false,
+        message: "null",
+        id: req.messageId || -1,
+        failure: req.fetchFailure || false
+    })
+}
+
+async function clipitSubmit(req, res, next){
+    var message = req.body.data;
+    message = message.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+    req.messageId = await clipit.store(message);
+    next();
+}
+
+router.get("/tools/clipit", clipitHome);
+router.post("/tools/clipit/submit", clipitSubmit, clipitHome);
+router.post("/tools/clipit/retrieve", clipit.checkID, async (req, res) => {
+    if(req.finalMessage != undefined){
+        const isMobile = req.useragent.isMobile;
+        res.render(`./tools/clipit.ejs`, {
+            isMobile,
+            title: "Clipit",
+            toolsList,
+            success: true,
+            message: req.finalMessage,
+            id: req.messageId || -1,
+            failure: req.fetchFailure || false
+        })
+    }
+});
+
+
 
 module.exports = router;

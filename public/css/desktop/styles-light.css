@@ -15,7 +15,7 @@ body{
     background-color: #2155CD;
 }
 
-#encrypt-submit, #decrypt-submit, .homepage-cta{
+#encrypt-submit, #decrypt-submit, #clipit-submit, .homepage-cta{
     background-color: #0AA1DD;
     color: white;
 }

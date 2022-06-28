@@ -2,6 +2,7 @@ const e = require('express');
 const express = require('express');
 const app = express();
 const useragent = require('express-useragent');
+const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(useragent.express());
@@ -12,6 +13,8 @@ const mainRouter = require('./routes/index.js');
 const toolsRouter = require('./routes/tools.js');
 app.use(mainRouter);
 app.use(toolsRouter);
+
+mongoose.connect(process.env.MONGODB_URL + '/live');
 
 app.set("view engine", "ejs");
 

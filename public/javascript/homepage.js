@@ -16,7 +16,7 @@ function typeWriter() {
 }
 
 setInterval(function(){
-    $('#list').stop().animate({scrollTop:200},2650,'linear',function(){
+    $('#list').stop().animate({scrollTop:200},2450,'linear',function(){
       $(this).scrollTop(0).find('span:last').after($('span:first', this));
     });
-}, 2700);
+}, 2500);

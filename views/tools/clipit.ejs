@@ -1,0 +1,79 @@
+<%- include("../partials/header.ejs") %>
+
+    <title><%= title %></title>
+</head>
+<body>
+
+    <div class="container container-fluid content">
+        <div class="container-fluid clipit-menu">
+            <h4><strong>Save Data</strong></h4>
+            <div class="alert alert-dismissible alert-warning clipt-warning">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <h4 class="alert-heading">Warning!</h4>
+                <p class="mb-0">Avoid pasting any sensitive information such as <strong>passwords</strong> or <strong>card details</strong>.</p>
+            </div>
+            <form action="/tools/clipit/submit" method="POST">
+                <div class="form-group form-contents">
+                    <textarea class="form-control submit-textbox" id="exampleTextarea" rows="5" name="data">Paste your contents here.</textarea>
+                </div>
+                <button class="btn" type="submit" id="clipit-submit">Submit</button>
+                <div class="alert alert-dismissible alert-success form-contents hidden">
+                    <strong>Unique ID generated</strong> successfully! Valid for <strong>15 minutes</strong>.
+                </div>
+            </form>
+
+            <div class="form-group form-contents">
+                <fieldset>
+                  <label class="clipit-uid-label">Your Unique ID &nbsp;</label>
+                  <input class="form-control clipit-uid-textbox" id="readOnlyInput" type="text" placeholder="No Unique ID generated" readonly="">
+                </fieldset>
+            </div>
+
+
+            <br><br>
+            <h4><strong>Retrieve Data</strong></h4>
+            <form action="/tools/clipit/retrieve" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control submit-uniqueid" name="data" placeholder="Enter Unique ID" aria-label="Enter Unique ID" aria-describedby="button-addon2">
+                    <button class="btn btn-success" type="submit" id="clipit-retrieve">Get Data</button>
+                </div>
+            </form>
+            <div class="alert alert-dismissible alert-danger form-contents hidden">
+                Unique ID <strong>invalid or expired</strong> please try again.
+            </div>
+        </div>
+
+        <!-- Modal  -->
+        <!-- Modal -->
+            <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Clipboard</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body clipit-modal-body"></div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success copy-to-clipboard">Copy</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+    </div>
+
+<script>
+    const id = <%= id %>;
+    const failure = <%= failure %>;
+    const success = <%= success %>;
+    const message = "<%- message %>";
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+<%- include("../partials/footer.ejs") %>
+
+<script src="/javascript/clipit.js"></script>

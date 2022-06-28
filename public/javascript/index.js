@@ -6,6 +6,21 @@ const changeMode = document.querySelector("#changeMode");
 var pathPrefix;
 
 document.addEventListener("DOMContentLoaded", () => {
+    switch(title){
+        case "Home":
+            document.querySelector(".home-link").classList.add("active");
+            break;
+        case "About":
+            document.querySelector(".about-link").classList.add("active");
+            break;
+        case "Contact":
+            document.querySelector(".contact-link").classList.add("active");
+            break;
+        default:
+            document.querySelector(".tools-link").classList.add("active");
+            break;
+    }
+
     if(isMobile) pathPrefix = 'mobile';
     else pathPrefix = 'desktop';
     var darkMode = localStorage.getItem("darkMode");
@@ -20,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function setDisplay(){
     if(changeMode.checked){
-        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/bootstrap-custom@master/flatly/bootstrap-dark.min.css`);
+        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/css/bootstrap-dark.min.css`);
         stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-dark.css`);
     }
     else{
-        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/bootstrap-custom@master/flatly/bootstrap-light.min.css`);
+        stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/css/bootstrap-light.min.css`);
         stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-light.css`);
     }
     localStorage.setItem("darkMode", changeMode.checked);

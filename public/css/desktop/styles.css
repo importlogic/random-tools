@@ -47,7 +47,7 @@ body{
 }
 
 .card-body{
-    height: 140px;
+    height: 143px;
 }
 
 .item:last-child {
@@ -76,7 +76,7 @@ body{
     height: 30px;
     border-radius: 50px;
     outline: none;
-    background-image: url("../../images/day.webp");
+    background-image: url("https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/images/day.webp");
     background-size: cover;
     cursor: pointer;
     transition: background-image 500ms ease-in-out 50ms;
@@ -100,7 +100,7 @@ body{
 }
 
 #changeMode:checked{
-    background-image: url("../../images/night.webp");
+    background-image: url("https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/images/night.webp");
 }
 
 .content{
@@ -147,14 +147,37 @@ body{
     margin-top: 80px;
 }
 
-#encrypt-submit:hover, #decrypt-submit:hover , .homepage-cta:hover{
+#encrypt-submit:hover, #decrypt-submit:hover, #clipit-submit:hover, .homepage-cta:hover{
     background-color: white;
     color: black;
     border-color: black;
 }
 
+.clipit-menu{
+    padding: 0 350px 0 350px;
+}
+
+.clipit-uid-textbox, .clipit-uid-label{
+    display: inline-block;
+}
+
+.clipit-uid-textbox{
+    width: 75%;
+}
+.clipit-uid-label{
+    width: 24%;
+}
+
+.clipt-warning{
+    text-align: left;
+}
+
+.clipit-modal-body{
+    text-align: left;
+}
+
 .footer{
-    height: 150px;
+    min-height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;

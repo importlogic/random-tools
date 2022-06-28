@@ -4,7 +4,7 @@ var speed = 50;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    typeWriter();
+  setTimeout(typeWriter, 500);
 });
 
 function typeWriter() {

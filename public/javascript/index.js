@@ -9,10 +9,10 @@ else pathPrefix = 'desktop';
 var darkMode = localStorage.getItem("darkMode");
 if(darkMode == undefined) darkMode = "false";
 changeMode.checked = (darkMode == "true");
+setDisplay();
+stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
 
 document.addEventListener("DOMContentLoaded", () => {
-    setDisplay();
-    stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
     setTimeout( () => {
         document.querySelector("html").classList.remove("preload");
     }, 1500);

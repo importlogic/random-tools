@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+#navBarIcon{
+    width: 6rem;
+    position: relative;
+    top: 7px;
+}
+
+.homepage-heading{
+    text-align: left;
+    position: relative;
+    font-weight: 600;
+    min-height: 280px;
+}
+
+.homepage-cta{
+    margin-left: 0;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#list {
+    overflow: hidden;
+    height: 500px;
+    text-align: left;
+}
+
+.card-header{
+    text-align: center;
+}
+
+.card-body{
+    height: 143px;
+}
+
+.item:last-child {
+    margin-bottom: 0px;
+}
+
+.download-heading{
+    margin-top: 150px;
+}
+
+
+.container{
+    padding: 10px 30px;
+}
+
+.nav-item{
+    margin: 5px 20px 5px 0;
+    text-align: left;
+}
+
+#changeMode{
+    -webkit-appearance: none;
+    position: relative;
+    top: 4px;
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    outline: none;
+    background-image: url("https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/images/day.webp");
+    background-size: cover;
+    cursor: pointer;
+    transition: background-image 500ms ease-in-out 50ms;
+}
+
+#changeMode::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #374151;
+    border-radius: 50px;
+    transition: transform 500ms ease-in-out 50ms;
+}
+
+#changeMode:checked::before{
+    transform: translate(100%);
+    transition: transform 500ms ease-in-out 50ms;
+}
+
+#changeMode:checked{
+    background-image: url("https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/images/night.webp");
+}
+
+.content{
+    min-height: 550px;
+}
+
+.content-instructions{
+    text-align: left;
+}
+
+.d-block{
+    height: 400px;
+}
+
+.tools-list{
+    padding: 30px 0 0;
+    margin-bottom: 30px;
+}
+
+.accordion-body{
+    text-align: left;
+}
+
+
+.encrypto-main{
+    text-align: center;
+}
+.encrypto-encrypt-btn{
+    margin-top: 30px !important;
+}
+.encrypto-decrypt-btn{
+    margin-bottom: 30px !important;
+}
+
+#encrypto-encrypt-form{
+    /* padding: 0 350px; */
+    margin: 40px 0;
+}
+#encrypto-decrypt-form{
+    /* padding: 0 350px; */
+}
+
+.form-contents{
+    margin: 15px auto;
+}
+
+.encrypto-file-decrypt{
+    margin-top: 80px;
+}
+
+#encrypt-submit:hover, #decrypt-submit:hover, #clipit-submit:hover, .homepage-cta:hover{
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+.clipit-uid-label{
+    margin-top: 40px;
+}
+
+.clipt-warning{
+    text-align: left;
+}
+
+.clipit-modal-body{
+    text-align: left;
+}
+
+#dataModal{
+    max-width: 100%;
+}
+
+.footer{
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar-download-page{
+    animation: loading-animation 10s;
+}
+@keyframes loading-animation {
+    from {width: 0%;}
+    to {width: 100%;}
+  }
+
+.footer-text{
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+

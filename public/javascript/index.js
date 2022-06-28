@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function setDisplay(){
     if(changeMode.checked){
         stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/css/bootstrap-dark.min.css`);
-        stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-dark.css`);
+        stylesTheme.setAttribute("href", `/css/styles-dark.css`);
     }
     else{
         stylesBootstrap.setAttribute("href", `https://cdn.jsdelivr.net/gh/importlogic/jsdelivr@main/random-tools/public/css/bootstrap-light.min.css`);
-        stylesTheme.setAttribute("href", `/css/${pathPrefix}/styles-light.css`);
+        stylesTheme.setAttribute("href", `/css/styles-light.css`);
     }
     localStorage.setItem("darkMode", changeMode.checked);
 }

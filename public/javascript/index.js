@@ -3,14 +3,10 @@ const stylesTheme = document.querySelector("#stylesTheme");
 const stylesCommon = document.querySelector("#stylesCommon");
 const changeMode = document.querySelector("#changeMode");
 
-var pathPrefix;
-if(isMobile) pathPrefix = 'mobile';
-else pathPrefix = 'desktop';
 var darkMode = localStorage.getItem("darkMode");
 if(darkMode == undefined) darkMode = "false";
 changeMode.checked = (darkMode == "true");
 setDisplay();
-stylesCommon.setAttribute("href", `/css/${pathPrefix}/styles.css`)
 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout( () => {

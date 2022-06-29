@@ -11,9 +11,7 @@ const toolsList = require('../modules/tools-data.js');
 
 
 router.get('/tools', (req, res) => {
-    const isMobile = req.useragent.isMobile;
     res.render('tools/tools.ejs', {
-        isMobile,
         title: "Tools",
         toolsList
     })
@@ -22,9 +20,7 @@ router.get('/tools', (req, res) => {
 // encrypto 
 
 router.get("/tools/encrypto", (req, res) => {
-    const isMobile = req.useragent.isMobile;
     res.render(`./tools/encrypto.ejs`, {
-        isMobile,
         title: "Encrypto",
         toolsList
     })
@@ -56,9 +52,7 @@ router.post("/tools/encrypto/:action", upload.single('file'), async (req, res) =
 router.get("/tools/encrypto/download/:fileName", (req, res) => {
     var fileName = req.params.fileName;
     var ext = req.query.ext;
-    const isMobile = req.useragent.isMobile;
     res.render("download.ejs", {
-        isMobile,
         title: "Download",
         toolsList,
         fileName,
@@ -75,9 +69,7 @@ router.get("/tools/encrypto/download/result/:fileName", (req, res) => {
 // clipit 
 
 function clipitHome(req, res){
-    const isMobile = req.useragent.isMobile;
     res.render(`./tools/clipit.ejs`, {
-        isMobile,
         title: "Clipit",
         toolsList,
         success: false,
@@ -98,9 +90,7 @@ router.get("/tools/clipit", clipitHome);
 router.post("/tools/clipit/submit", clipitSubmit, clipitHome);
 router.post("/tools/clipit/retrieve", clipit.checkID, async (req, res) => {
     if(req.finalMessage != undefined){
-        const isMobile = req.useragent.isMobile;
         res.render(`./tools/clipit.ejs`, {
-            isMobile,
             title: "Clipit",
             toolsList,
             success: true,

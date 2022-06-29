@@ -1,11 +1,9 @@
 const e = require('express');
 const express = require('express');
 const app = express();
-const useragent = require('express-useragent');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(useragent.express());
 app.use(express.static('public'))
 require("dotenv").config();
 

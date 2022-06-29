@@ -3,7 +3,6 @@
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    padding: 0 !important;
     transition-duration: 0.4s;
 }
 
@@ -23,15 +22,18 @@ body{
 .homepage-heading{
     text-align: left;
     position: relative;
+    left: -10px;
     font-weight: 600;
-    min-height: 280px;
+    min-height: 250px;
+    margin-top: 40px;
 }
 
 .homepage-cta{
     margin-left: 0;
     cursor: pointer;
     position: relative;
-    margin-bottom: 40px;
+    left: -10px;
+    margin-top: 20px;
 }
 
 #list {
@@ -114,7 +116,7 @@ body{
 }
 
 .tools-list{
-    padding: 30px 0 0;
+    padding: 30px 200px 0;
     margin-bottom: 30px;
 }
 
@@ -127,18 +129,14 @@ body{
     text-align: center;
 }
 .encrypto-encrypt-btn{
-    margin-top: 30px !important;
-}
-.encrypto-decrypt-btn{
-    margin-bottom: 30px !important;
+    margin-top: 70px !important;
 }
 
 #encrypto-encrypt-form{
-    /* padding: 0 350px; */
-    margin: 40px 0;
+    padding: 0 350px;
 }
 #encrypto-decrypt-form{
-    /* padding: 0 350px; */
+    padding: 0 350px;
 }
 
 .form-contents{
@@ -155,8 +153,19 @@ body{
     border-color: black;
 }
 
+.clipit-menu{
+    padding: 0 350px 0 350px;
+}
+
+.clipit-uid-textbox, .clipit-uid-label{
+    display: inline-block;
+}
+
+.clipit-uid-textbox{
+    width: 75%;
+}
 .clipit-uid-label{
-    margin-top: 40px;
+    width: 24%;
 }
 
 .clipt-warning{
@@ -165,10 +174,6 @@ body{
 
 .clipit-modal-body{
     text-align: left;
-}
-
-#dataModal{
-    padding: 0 10px !important;
 }
 
 .footer{
@@ -194,3 +199,56 @@ body{
     display: none;
 }
 
+
+/* mobile  */
+
+@media (max-width: 769px){
+    body{
+        padding: 0 !important;
+    }
+
+    .homepage-heading{
+        left: 0;
+        min-height: 280px;
+        margin-top: 0;
+    }
+    .homepage-cta{
+        left: -0;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    .tools-list{
+        padding: 30px 0 0;
+    }
+
+    .encrypto-encrypt-btn{
+        margin-top: 30px !important;
+    }
+    .encrypto-decrypt-btn{
+        margin-bottom: 30px !important;
+    }
+
+    #encrypto-encrypt-form{
+        padding: 0;
+        margin: 40px 0;
+    }
+    #encrypto-decrypt-form{
+        padding: 0;
+    }
+
+    .clipit-menu{	
+        padding: 0;	
+    }	
+    .clipit-uid-textbox{	
+        width: 100%;	
+    }	
+    .clipit-uid-label{	
+        width: 100%;	
+        margin: 40px 0 10px;
+    }
+
+    #dataModal{
+        padding: 0 10px !important;
+    }
+}

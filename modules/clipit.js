@@ -39,9 +39,7 @@ const checkID = async (req, res, next) => {
         req.finalMessage = received[0].data;
     }
     else{
-        const isMobile = req.useragent.isMobile;
         res.render(`./tools/clipit.ejs`, {
-            isMobile,
             title: "Clipit",
             toolsList,
             success: false,

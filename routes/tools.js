@@ -8,6 +8,7 @@ const upload = multer({ dest: './tmp/uploads' });
 const encrypto = require("../modules/encrypto.js");
 const clipit = require("../modules/clipit.js");
 const toolsList = require('../modules/tools-data.js');
+const downloader = require('../modules/downloader.js');
 
 
 router.get('/tools', (req, res) => {
@@ -36,34 +37,25 @@ router.post("/tools/encrypto/:action", upload.single('file'), async (req, res) =
 
     if(action == 'encrypt'){
         encrypto.encrypt(data, password, fileName, ext);
-        res.redirect(`/tools/encrypto/download/${fileName}?ext=.png`);
+        res.redirect(`/download/${fileName}?ext=.png`);
     }
     else{
         var ok = await encrypto.decrypt(password, fileName, ext);
         if(ok){
-            res.redirect(`/tools/encrypto/download/${fileName}?ext=.txt`);
+            res.redirect(`/download/${fileName}?ext=.txt`);
         }
         else{
-            res.status(500).render("broken.ejs");
+            res.status(500).render("broken.ejs",
+            {
+                code: "500"
+            });
         }
     }
 });
 
-router.get("/tools/encrypto/download/:fileName", (req, res) => {
-    var fileName = req.params.fileName;
-    var ext = req.query.ext;
-    res.render("download.ejs", {
-        title: "Download",
-        toolsList,
-        fileName,
-        ext
-    })
-})
+router.get("/download/:fileName", downloader.loadPage)
 
-router.get("/tools/encrypto/download/result/:fileName", (req, res) => {
-    var fileName = req.params.fileName;
-    res.download(`./tmp/downloads/${fileName}`);
-})
+router.get("/download/result/:fileName", downloader.loadFile)
 
 
 // clipit 

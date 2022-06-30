@@ -200,6 +200,59 @@ body{
 }
 
 
+/* partial wide  */
+
+@media (max-width: 1025px){
+    body{
+        padding: 0 !important;
+    }
+
+    .homepage-heading{
+        left: 0;
+        min-height: 280px;
+        margin-top: 0;
+    }
+    .homepage-cta{
+        left: -0;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    .tools-list{
+        padding: 30px 100px 0;
+    }
+
+    .encrypto-encrypt-btn{
+        margin-top: 30px !important;
+    }
+    .encrypto-decrypt-btn{
+        margin-bottom: 30px !important;
+    }
+
+    #encrypto-encrypt-form{
+        padding: 0 180px 0;
+        margin: 40px 0;
+    }
+    #encrypto-decrypt-form{
+        padding: 0 180px 0;
+    }
+
+    .clipit-menu{	
+        padding: 0 180px 0;	
+    }	
+    .clipit-uid-textbox{	
+        width: 100%;	
+    }	
+    .clipit-uid-label{	
+        width: 100%;	
+        margin: 40px 0 10px;
+    }
+
+    #dataModal{
+        padding: 0 10px !important;
+    }
+}
+
 /* mobile  */
 
 @media (max-width: 769px){

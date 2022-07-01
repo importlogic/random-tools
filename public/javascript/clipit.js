@@ -14,6 +14,7 @@ document.querySelector(".copy-to-clipboard").addEventListener("click", () => {
 })
 
 submitbtn.addEventListener("click", async () => {
+    submitbtn.setAttribute("disabled", "");
     const config = {
         url: '/tools/clipit/submit-data',
         method: 'post',
@@ -26,9 +27,11 @@ submitbtn.addEventListener("click", async () => {
     successAlert.classList.remove("hidden");
     idPlaceholder.setAttribute("placeholder", id);
     submitText.innerText = "Paste your contents here.";
+    submitbtn.removeAttribute("disabled");
 })
 
 getbtn.addEventListener("click", async () => {
+    getbtn.setAttribute("disabled", "");
     const config = {
         url: '/tools/clipit/get-data',
         method: "post",
@@ -46,4 +49,5 @@ getbtn.addEventListener("click", async () => {
         document.querySelector(".modal-body").innerHTML = message;
         $("#dataModal").modal("show");
     }
+    getbtn.removeAttribute("disabled");
 })

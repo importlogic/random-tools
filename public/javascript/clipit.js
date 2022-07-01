@@ -24,10 +24,13 @@ submitbtn.addEventListener("click", async () => {
     }
     const res = await axios(config);
     const id = res.data.id;
-    successAlert.classList.remove("hidden");
     idPlaceholder.setAttribute("placeholder", id);
     submitText.innerText = "Paste your contents here.";
     submitbtn.removeAttribute("disabled");
+    successAlert.classList.remove("hidden");
+    setTimeout(() => {
+        successAlert.classList.add("hidden");
+    }, 10 * 1000);
 })
 
 getbtn.addEventListener("click", async () => {
@@ -43,11 +46,12 @@ getbtn.addEventListener("click", async () => {
     const message = res.data.message;
     if(message === -1){
         invalidAlert.classList.remove("hidden");
-        submitId.setAttribute("placeholder", "Enter Unique ID");
     }
     else{
         document.querySelector(".modal-body").innerHTML = message;
         $("#dataModal").modal("show");
+        invalidAlert.classList.add("hidden");
     }
+    submitId.value = "";
     getbtn.removeAttribute("disabled");
 })

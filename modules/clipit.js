@@ -29,31 +29,20 @@ const store = (data) => {
     return id;
 }
 
-const checkID = async (req, res, next) => {
-    const id = req.body.data;
-
+const get = async (id) => {
     var received = await clipitClipboardItem.find({
         id
     })
     if(received.length){
-        req.finalMessage = received[0].data;
+        return received[0].data;
     }
     else{
-        res.render(`./tools/clipit.ejs`, {
-            title: "Clipit",
-            toolsList,
-            success: false,
-            message: "null",
-            id: req.messageId || -1,
-            failure: true
-        })
+        return -1;
     }
-    
-    next();
 }
 
 
 module.exports = {
     store, 
-    checkID
+    get
 }

@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const multer  = require('multer')
 const upload = multer({ dest: './tmp/uploads' });
-
+    
 // Local Modules 
 const encrypto = require("../modules/encrypto.js");
 const clipit = require("../modules/clipit.js");
@@ -60,38 +60,25 @@ router.get("/download/result/:fileName", downloader.loadFile)
 
 // clipit 
 
-function clipitHome(req, res){
+router.get("/tools/clipit", (req, res) => {
     res.render(`./tools/clipit.ejs`, {
         title: "Clipit",
-        toolsList,
-        success: false,
-        message: "null",
-        id: req.messageId || -1,
-        failure: req.fetchFailure || false
+        toolsList
     })
-}
-
-async function clipitSubmit(req, res, next){
-    var message = req.body.data;
-    message = message.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-    req.messageId = await clipit.store(message);
-    next();
-}
-
-router.get("/tools/clipit", clipitHome);
-router.post("/tools/clipit/submit", clipitSubmit, clipitHome);
-router.post("/tools/clipit/retrieve", clipit.checkID, async (req, res) => {
-    if(req.finalMessage != undefined){
-        res.render(`./tools/clipit.ejs`, {
-            title: "Clipit",
-            toolsList,
-            success: true,
-            message: req.finalMessage,
-            id: req.messageId || -1,
-            failure: req.fetchFailure || false
-        })
-    }
 });
+
+router.post("/tools/clipit/submit-data", async (req, res) => {
+    var data = req.body.message;
+    data = data.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    const id = await clipit.store(data);
+    res.send({id});
+})
+
+router.post("/tools/clipit/get-data", async (req, res) => {
+    const id = req.body.id;
+    const message  = await clipit.get(id);
+    res.send({message});
+})
 
 
 

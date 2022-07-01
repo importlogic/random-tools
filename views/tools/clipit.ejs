@@ -12,15 +12,15 @@
                 <h4 class="alert-heading">Warning!</h4>
                 <p class="mb-0">Avoid pasting any sensitive information such as <strong>passwords</strong> or <strong>card details</strong>.</p>
             </div>
-            <form action="/tools/clipit/submit" method="POST">
-                <div class="form-group form-contents">
-                    <textarea class="form-control submit-textbox" id="exampleTextarea" rows="5" name="data">Paste your contents here.</textarea>
-                </div>
-                <button class="btn" type="submit" id="clipit-submit">Submit</button>
-                <div class="alert alert-dismissible alert-success form-contents hidden">
-                    <strong>Unique ID generated</strong> successfully! Valid for <strong>15 minutes</strong>.
-                </div>
-            </form>
+
+            
+            <div class="form-group form-contents">
+                <textarea class="form-control submit-textbox" id="exampleTextarea" rows="5" name="data">Paste your contents here.</textarea>
+            </div>
+            <button class="btn" type="submit" id="clipit-submit">Submit</button>
+            <div class="alert alert-dismissible alert-success form-contents hidden">
+                <strong>Unique ID generated</strong> successfully! Valid for <strong>15 minutes</strong>.
+            </div>
 
             <div class="form-group form-contents">
                 <fieldset>
@@ -32,12 +32,13 @@
 
             <br><br>
             <h4><strong>Retrieve Data</strong></h4>
-            <form action="/tools/clipit/retrieve" method="POST">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control submit-uniqueid" name="data" placeholder="Enter Unique ID" aria-label="Enter Unique ID" aria-describedby="button-addon2">
-                    <button class="btn btn-success" type="submit" id="clipit-retrieve">Get Data</button>
-                </div>
-            </form>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control submit-uniqueid" name="data" placeholder="Enter Unique ID" aria-label="Enter Unique ID" aria-describedby="button-addon2">
+                <button class="btn btn-success" type="submit" id="clipit-retrieve">Get Data</button>
+            </div>
+
+
             <div class="alert alert-dismissible alert-danger form-contents hidden">
                 Unique ID <strong>invalid or expired</strong> please try again.
             </div>
@@ -64,16 +65,13 @@
 
     </div>
 
-<script>
-    const id = <%= id %>;
-    const failure = <%= failure %>;
-    const success = <%= success %>;
-    const message = "<%- message %>";
-</script>
-
-
+<!-- Jquery CDN  -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+
+<!-- Axios CDN  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <%- include("../partials/footer.ejs") %>
 
+<!-- JS  -->
 <script src="/javascript/clipit.js"></script>

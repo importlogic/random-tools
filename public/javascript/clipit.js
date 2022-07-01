@@ -23,7 +23,6 @@ submitbtn.addEventListener("click", async () => {
     }
     const res = await axios(config);
     const id = res.data.id;
-    console.log(id)
     successAlert.classList.remove("hidden");
     idPlaceholder.setAttribute("placeholder", id);
     submitText.innerText = "Paste your contents here.";

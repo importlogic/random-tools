@@ -115,7 +115,7 @@ const decrypt = async (password, fileName, ext) => {
     
     var writeStream = fs.createWriteStream(`${dir}downloads/${fileName}-converted.txt`);
     writeStream.write(result + '\n\n');
-    writeStream.write("[For more such tools visit www.random-tools.herokuapp.com]");
+    writeStream.write("[For more such tools visit www.random-tools.onrender.com]");
     writeStream.end();
     setTimeout(() => {
         fs.unlink(`${dir}downloads/${fileName}-converted.txt`, (e) => {} );
